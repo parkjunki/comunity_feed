@@ -1,6 +1,7 @@
 package org.example.post.domain.comment;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.example.post.domain.Post;
 import org.example.post.domain.content.CommentContent;
@@ -26,4 +27,33 @@ class CommentTest {
         assertEquals(1, comment.getLikeCount());
     }
 
+    @Test
+    void givenCommentCreated_whenUnlike_thenLikeCountShouldBe0() {
+        //when
+        comment.unlike();
+
+        //then
+        assertEquals(0, comment.getLikeCount());
+    }
+
+    @Test
+    void givenCommentCreated_whenUpdateContent_thenContentShouldBeUpdated() {
+        //given
+        String text = "this is a text";
+
+        //when
+        comment.updateComment(user, text);
+
+        //then
+        assertEquals(text, comment.getContent());
+    }
+
+    @Test
+    void givenCommentCreated_whenUpdateOtherUserUpdate_thenThrowError() {
+        //given
+        String text = "update text";
+
+        //when, then
+        assertThrows(IllegalArgumentException.class, () -> comment.updateComment(otherUser, text));
+    }
 }
