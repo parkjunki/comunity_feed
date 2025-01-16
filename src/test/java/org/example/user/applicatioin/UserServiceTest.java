@@ -2,6 +2,7 @@ package org.example.user.applicatioin;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.example.fake.FakeObjectFactory;
 import org.example.user.application.UserService;
 import org.example.user.application.dto.CreateUserRequestDto;
 import org.example.user.application.interfaces.UserRepository;
@@ -11,8 +12,7 @@ import org.example.user.repository.FakeUserRepository;
 import org.junit.jupiter.api.Test;
 
 class UserServiceTest {
-    private final UserRepository userRepository = new FakeUserRepository();
-    private final UserService userService = new UserService(userRepository);
+    private final UserService userService = FakeObjectFactory.getUserService();
 
     @Test
     void givenUserInfoDto_whenCreateUser_thenCanFindUser() {

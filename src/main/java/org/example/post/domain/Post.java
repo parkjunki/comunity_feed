@@ -17,11 +17,11 @@ public class Post {
         return new Post(id, author, new PostContent(content), state);
     }
 
-    public static Post createDefaultPost(Long id, User author, PostContent content) {
+    public static Post createDefaultPost(Long id, User author, Content content) {
         return new Post(id, author, content);
     }
 
-    public Post(Long id, User author, PostContent content) {
+    public Post(Long id, User author, Content content) {
         if(author == null) {
             throw new IllegalArgumentException();
         }
@@ -70,5 +70,17 @@ public class Post {
 
     public String getContent() {
         return content.getContentText();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public Content getContentObject() {
+        return content;
     }
 }
