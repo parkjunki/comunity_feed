@@ -5,7 +5,9 @@ import org.example.user.application.dto.CreateUserRequestDto;
 import org.example.user.application.interfaces.UserRepository;
 import org.example.user.domain.User;
 import org.example.user.domain.UserInfo;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserService {
     private final UserRepository userRepository;
 
@@ -20,6 +22,6 @@ public class UserService {
     }
 
     public User getUser(Long id) {
-        return userRepository.findById(id).orElseThrow(IllformedLocaleException::new);
+        return userRepository.findById(id);
     }
 }

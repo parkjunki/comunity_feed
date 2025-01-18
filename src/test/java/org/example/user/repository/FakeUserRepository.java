@@ -21,7 +21,7 @@ public class FakeUserRepository implements UserRepository {
     }
 
     @Override
-    public Optional<User> findById(Long Id) {
-        return Optional.ofNullable(store.get(Id));
+    public User findById(Long Id) {
+        return store.get(Id);
     }
 }
