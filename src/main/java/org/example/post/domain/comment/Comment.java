@@ -1,11 +1,15 @@
 package org.example.post.domain.comment;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import org.example.common.domain.PositiveIntegerCount;
 import org.example.post.domain.Post;
 import org.example.post.domain.content.CommentContent;
 import org.example.post.domain.content.Content;
 import org.example.user.domain.User;
 
+@Builder
+@AllArgsConstructor
 public class Comment {
     private final Long id;
     private final Post post;

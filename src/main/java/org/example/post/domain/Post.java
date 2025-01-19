@@ -1,11 +1,15 @@
 package org.example.post.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import org.example.common.domain.PositiveIntegerCount;
 import org.example.post.domain.content.Content;
 import org.example.post.domain.content.PostContent;
 import org.example.post.domain.content.PostPublicationState;
 import org.example.user.domain.User;
 
+@Builder
+@AllArgsConstructor
 public class Post {
     private final Long id;
     private final User author;  //User 객체를 사용하면 활용가능한 메서드나 가독성의 장점. 테스트 세팅 시 번거로운 단점
@@ -78,6 +82,10 @@ public class Post {
 
     public User getAuthor() {
         return author;
+    }
+
+    public PostPublicationState getState() {
+        return state;
     }
 
     public Content getContentObject() {
