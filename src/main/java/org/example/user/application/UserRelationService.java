@@ -3,7 +3,9 @@ package org.example.user.application;
 import org.example.user.application.dto.FollowUserRequestDto;
 import org.example.user.application.interfaces.UserRelationRepository;
 import org.example.user.domain.User;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserRelationService {
     private final UserService userService;
     private final UserRelationRepository userRelationRepository;
