@@ -5,5 +5,5 @@ import org.example.post.domain.comment.Comment;
 
 public interface CommentRepository {
     Comment save(Comment comment);
-    Optional<Comment> findById(Long id);
+    Comment findById(Long id);
 }
