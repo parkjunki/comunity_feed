@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface JpaPostRepository extends JpaRepository<PostEntity, Long> {
 
-    @Query("SELECT p.id FROM PostEntity p WHERE p.author.id = :authorId")
-    List<Long> findPostIdsByAuthorId(Long authorId);
+    @Query("SELECT p FROM PostEntity p WHERE p.author.id = :authorId")
+    List<PostEntity> findPostIdsByAuthorId(Long authorId);
 
     @Modifying
     @Query(value = "UPDATE PostEntity p "
